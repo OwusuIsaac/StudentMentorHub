@@ -14,7 +14,7 @@ To install and run the StudentSuccessNetwork API locally, follow these steps:
 1. Clone the repository:
 
    ```shell
-   git clone https://github.com//senior_Freshmen_appointment_booking_system_pococare.git
+   git clone https://github.com/OwusuIsaac/senior_Freshmen_appointment_booking_system_pococare.git
 
 
 
