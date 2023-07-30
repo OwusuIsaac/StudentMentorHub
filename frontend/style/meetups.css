@@ -40,7 +40,7 @@
 
 
 
-  #appointment_header{
+  #meetups_header{
     text-align: center;
     font-size: 30px;
     margin-top: 20px;
@@ -50,7 +50,7 @@
 
 
 
-/* Appointment Box Styles */
+/* MeetUps Box Styles */
 #main_container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -58,27 +58,27 @@
     padding: 40px;
   }
   
-  .appointment_box {
+  .meetups_box {
     background-color:#d4d4d4;
     border-radius: 10px;
     padding: 20px;
   }
   
-  .appointment_box label {
+  .meetups_box label {
     font-weight: bold;
   }
 
-  .appointment_box{
+  .meetups_box{
     font-size: 18px;
   }
   
-  .doctor_name,
+  .senior_name,
   .specialization,
-  .doctor_email,
-  .patient_name,
+  .senior_email,
+  .freshman_name,
   .date,
   .time_slot,
-  .patient_email {
+  .freshman_email {
     margin-bottom: 10px;
   }
 
@@ -110,7 +110,7 @@
       grid-template-columns: 1fr;
     }
   
-    .appointment_box {
+    .meetups_box {
       padding: 10px;
     }
   
