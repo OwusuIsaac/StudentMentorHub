@@ -1,50 +1,50 @@
-const appointment_header = document.getElementById("appointment_header");
+const meetups_header = document.getElementById("meetups_header");
 const main_container = document.getElementById("main_container");
 
-getAppointmentsFn();
+getMeetUpsFn();
 
 
 let userRole="";
-async function getAppointmentsFn() {
+async function getMeetUpsFn() {
     try {
-        let res = await fetch("http://localhost:3100/appointments", {
+        let res = await fetch("http://localhost:3100/meetups", {
             method: "GET",
             headers: {
                 "Content-Type": "Application/json",
-                authorization: sessionStorage.getItem("health_token")
+                authorization: sessionStorage.getItem("connecting_token")
             }
         })
         let fin = await res.json();
         if (res.status == 200) {
             userRole=fin.userRole;
-            renderAppointmentsFn(fin.data, fin.userRole);
+            renderMeetUpsFn(fin.data, fin.userRole);
         } else {
             alert(fin.msg);
             window.location.href = "../html/login.html";
         }
     } catch (error) {
         console.log(error.message);
-        alert("Unable to get Appointments");
+        alert("Unable to get MeetUps");
     }
 }
 
 
-function renderAppointmentsFn(arr, role) {
-    appointment_header.innerText = null;
-    appointment_header.innerText = `Hello ${role}, Here's your appointments`;
+function renderMeetUpsFn(arr, role) {
+    meetups_header.innerText = null;
+    meetups_header.innerText = `Hello ${role}, Here's your meetups`;
     main_container.innerHTML = null;
     let template_arr = arr.map((el) => {
-        return `<div class="appointment_box">
-        <div class="doctor_name"><label for="">Doctor Name :</label>${el.doctor_id.name}</div>
-        <div class="specialization"><label for="">Specialization :</label>${el.doctor_id.doctor_specialization}</div>
-        <div class="doctor_email"><label for="">Doctor Email :</label>${el.doctor_id.email}</div>
-        <div class="patient_name"><label for="">Patient Name :</label>${el.patient_id.name}</div>
+        return `<div class="meetups_box">
+        <div class="senior_name"><label for="">Senior Name :</label>${el.senior_id.name}</div>
+        <div class="major_division"><label for="">Major_division :</label>${el.doctor_id.senior_major_division}</div>
+        <div class="senior_email"><label for="">Senior Email :</label>${el.senior_id.email}</div>
+        <div class="freshman_name"><label for="">Freshman Name :</label>${el.freshman_id.name}</div>
         <div class="date"><label for="">Date :</label>${el.date}</div>
         <div class="time_slot"><label for="">Time Slot :</label>${el.time_slot}</div>
-        <div class="patient_email"><label for="">Patient Email :</label>${el.patient_id.email}</div>
+        <div class="freshman_email"><label for="">Freshman Email :</label>${el.freshman_id.email}</div>
         <div class="btns_div">
             <button type="click" class="video_btn" data-id=${el._id}>Video Consultation</button>
-            <button type="click" class="delete_btn" data-id=${el._id}>Cancel Appointment</button>
+            <button type="click" class="delete_btn" data-id=${el._id}>Cancel Meetups</button>
         </div>
     </div>`;
     })
@@ -55,7 +55,7 @@ function renderAppointmentsFn(arr, role) {
         delete_btn.addEventListener("click", (event) => {
             event.preventDefault();
             const delete_id = event.target.dataset.id;
-            deleteAppointmentFn(delete_id);
+            deleteMeetUpsFn(delete_id);
         })
     }
 
@@ -64,8 +64,8 @@ function renderAppointmentsFn(arr, role) {
     for (let video_btn of all_video_btns) {
         video_btn.addEventListener("click", (event) => {
             event.preventDefault();
-            const appointmentId = event.target.dataset.id;
-            initiateVideoConsultationFn(appointmentId);
+            const meetupsId = event.target.dataset.id;
+            initiateVideoConsultationFn(meetupsId);
         })
     }
 
@@ -73,25 +73,25 @@ function renderAppointmentsFn(arr, role) {
 }
 
 
-async function deleteAppointmentFn(delete_id) {
+async function deletMeetUpsFn(delete_id) {
     try {
-        let res = await fetch(`http://localhost:3100/appointment/${delete_id}`, {
+        let res = await fetch(`http://localhost:3100/meetups/${delete_id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "Application/json",
-                authorization: sessionStorage.getItem("health_token")
+                authorization: sessionStorage.getItem("connecting_token")
             }
         })
         let fin = await res.json();
         if (res.status == 200) {
             alert(fin.msg);
-            window.location.href = "../html/appointments.html";
+            window.location.href = "../html/meetups.html";
         } else {
             alert(fin.msg);
         }
     } catch (error) {
         console.log(error.message);
-        alert("Unable to delete the Appointment");
+        alert("Unable to delete the MeetUps");
     }
 }
 
@@ -99,16 +99,16 @@ async function deleteAppointmentFn(delete_id) {
 
 
 
-async function initiateVideoConsultationFn(appointmentId) {
+async function initiateVideoConsultationFn(meetupsId) {
     try {
-        // let res = await fetch(`http://localhost:3100/${appointmentId}`, {
+        // let res = await fetch(`http://localhost:3100/${meetupsId}`, {
         //     method: "GET",
         //     headers: {
         //         "Content-Type": "Application/json",
-        //         authorization: sessionStorage.getItem("health_token"),
+        //         authorization: sessionStorage.getItem("connecting_token"),
         //     }
         // });
-        let str=`http://localhost:3100/${appointmentId}`;
+        let str=`http://localhost:3100/${meetupsId}`;
         window.open(str, "_blank");
     } catch (error) {
         console.log(error.message);
