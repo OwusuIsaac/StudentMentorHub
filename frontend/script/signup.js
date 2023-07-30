@@ -8,8 +8,8 @@ register.addEventListener("submit",(event)=>{
     obj["gender"]=document.getElementById("gender").value;
     obj["role"]=document.getElementById("role").value;
     obj["location"]=document.getElementById("location").value;
-    if(obj["role"]=="doctor"){
-        obj["doctor_specialization"]=document.getElementById("doctor_specialization").value;
+    if(obj["role"]=="senior"){
+        obj["senior_major_division"]=document.getElementById("senior_major_division").value;
     }
     userRegisterFn(obj); 
 })
