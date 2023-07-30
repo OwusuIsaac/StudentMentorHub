@@ -41,7 +41,7 @@
 
 
 
-/* Doctor Box Styles */
+/* Senior Box Styles */
 #main_container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -49,7 +49,7 @@
   padding: 40px;
 }
 
-.doctor_box {
+.senior_box {
   background-color: #adadad;
   border-radius: 10px;
   padding: 20px;
