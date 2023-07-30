@@ -32,6 +32,6 @@ async function userRegisterFn(obj){
             alert(fin.msg);
         }
     } catch (error) {
-        alert("unable to do registering");
+        alert("unable to do registeration");
     }
 }
