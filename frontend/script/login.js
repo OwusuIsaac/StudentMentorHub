@@ -19,7 +19,7 @@ async function userLoginFn(obj){
         })
         let fin=await res.json();
         if(res.status==201){
-            sessionStorage.setItem("health_token",fin.token);
+            sessionStorage.setItem("connecting_token",fin.token);
             alert(fin.msg);
             window.location.href="../index.html";
         }else{
