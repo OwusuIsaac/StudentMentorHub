@@ -124,7 +124,7 @@ async function bookMeetUpsFn(obj){
         }
     } catch (error) {
         console.log(error.message);
-        alert("Unable to get Senior's");
+        alert("Unable to get Senior");
     }
 }
 
