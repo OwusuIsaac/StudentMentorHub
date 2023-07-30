@@ -112,7 +112,7 @@ async function initiateVideoConsultationFn(meetupsId) {
         window.open(str, "_blank");
     } catch (error) {
         console.log(error.message);
-        alert("Unable to initiate video consultation");
+        alert("Unable to initiate video consultations");
     }
 }
 
