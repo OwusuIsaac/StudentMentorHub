@@ -13,14 +13,14 @@ app.use(cors());
 
 const { connection } = require("./config/db");
 const { userRouter } = require("./routes/user.router");
-const { appointmentRouter } = require("./routes/appointment.router");
+const { meetupsRouter } = require("./routes/meetups.router");
 
 app.get("/", (req, res) => {
-  res.send("Basic API endpoint for MediConnect");
+  res.send("Basic API endpoint for StudentSuccessNetwork");
 });
 
 app.use("/", userRouter);
-app.use("/", appointmentRouter);
+app.use("/", meetupsRouter);
 
 app.set('view engine','ejs');
 app.use(express.static('public'));
