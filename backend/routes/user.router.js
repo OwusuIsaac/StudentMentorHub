@@ -9,15 +9,15 @@ const { authenticator } = require("../middlewares/authenticator.middleware");
 
 
 userRouter.post("/register", async (req, res) => {
-    const { name, email, password,gender, role, location, doctor_specialization } = req.body;
+    const { name, email, password,gender, role, location, senior_major_division } = req.body;
     try {
         const checker = await Usermodel.findOne({ email });
         if (checker) {
-            res.status(202).json({ "msg": `user already exsits with same email` });
+            res.status(202).json({ "msg": `user already exists with same email` });
         } else {
             bcrypt.hash(password, 7, async (err, hash) => {
                 if (hash) {
-                    const user = new Usermodel({ name, email, password: hash,gender, role, location, doctor_specialization: doctor_specialization || "None" });
+                    const user = new Usermodel({ name, email, password: hash,gender, role, location, senior_major_division: senior_major_division || "None" });
                     await user.save();
                     res.status(201).json({ "msg": `${role} registration successful` });
                 } else {
@@ -66,13 +66,13 @@ userRouter.get("/alluser", async (req, res) => {
     }
 })
 
-userRouter.get("/doctors",authenticator, async (req, res) => {
+userRouter.get("/seniors",authenticator, async (req, res) => {
     try {
-        const doctors = await Usermodel.find({ role: "doctor" });
-        res.status(200).json({ "msg": "doctors data fetched successfully", "data": doctors });
+        const seniors = await Usermodel.find({ role: "senior" });
+        res.status(200).json({ "msg": "seniors data fetched successfully", "data": seniors });
     } catch (error) {
         console.log(error.message);
-        res.status(404).json({ "msg": "unable to fetch doctors" });
+        res.status(404).json({ "msg": "unable to fetch seniors" });
     }
 })
 
