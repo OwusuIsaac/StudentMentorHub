@@ -7,14 +7,14 @@ async function sendMailFn(user_email,subject,text){
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: 'jishnurajkarockal2001@gmail.com',
+                user: 'oisaac1643@gmail.com',
                 pass: process.env.email_password
             }
         });
 
 
         const mailOptions = {
-            from: 'jishnurajkarockal2001@gmail.com',
+            from: 'oisaac1643@gmail.com',
             to: `${user_email}`,
             subject:`${subject}`,
             text: `${text}`
