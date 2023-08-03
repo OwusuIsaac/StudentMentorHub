@@ -80,3 +80,12 @@ The StudentSuccessNetwork API relies on the following dependencies:
 
 For a complete list of dependencies, refer to the `package.json` file.
 
+## Application Screenshots
+<img width="1368" alt="Screenshot 2023-08-02 at 7 25 44 PM (1)" src="https://github.com/OwusuIsaac/StudentSuccessNetwork/assets/105105471/9a1c741e-5096-4397-adf7-1461e3f99444">
+<img width="1440" alt="Screenshot 2023-08-02 at 7 37 58 PM (1)" src="https://github.com/OwusuIsaac/StudentSuccessNetwork/assets/105105471/c21acd67-e072-4d50-95c7-a5b86de25e51">
+<img width="1440" alt="Screenshot 2023-08-02 at 7 37 34 PM (1)" src="https://github.com/OwusuIsaac/StudentSuccessNetwork/assets/105105471/cc1505bd-eff2-4fda-91d4-c5ad56393f49">
+
+
+
+
+
